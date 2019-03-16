@@ -5,7 +5,13 @@ const helmet = require('helmet');
 const cors = require('cors');
 const rateLimiter = require('express-rate-limit');
 
-require('dotenv').config();
+if (process.env.NODE_ENV == 'test') {
+    require('dotenv').config({
+        path: 'tests/.env'
+    });
+} else {
+    require('dotenv').config();
+}
 
 const app = express();
 const db = require('./db');
@@ -71,5 +77,5 @@ app.use((err, req, res) => {
     });
 });
 
-app.listen(3003);
+app.listen(process.env.APP_PORT);
 module.exports = app;
