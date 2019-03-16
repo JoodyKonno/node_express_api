@@ -16,6 +16,9 @@ globals.dbInstance = db;
 globals.db = {};
 globals.db.MeetingsModel = require('./models/MeetingsModel')(db);
 
+globals.helpers = {};
+globals.helpers.hypermedia = require('./helpers/hypermedia');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

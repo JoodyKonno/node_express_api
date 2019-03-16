@@ -19,12 +19,13 @@ module.exports = globals => {
         .json({
           data: {
             title: newMeeting.title,
-            content: newMeeting.content
+            content: newMeeting.content,
+            href: globals.helpers.hypermedia.singleResource('meetings', newMeeting.id)
           }
         });
 
     } catch (err) {
-
+      
       res
         .status(400)
         .json({
@@ -60,7 +61,7 @@ module.exports = globals => {
             id: meeting._id,
             title: meeting.title,
             content: meeting.content,
-            href: `/meetings/${meeting._id}`
+            href: globals.helpers.hypermedia.singleResource('meetings', meeting._id)
           }
         });
 
