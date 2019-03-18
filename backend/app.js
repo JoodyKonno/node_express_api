@@ -21,6 +21,7 @@ const globals = {};
 globals.dbInstance = db;
 globals.db = {};
 globals.db.MeetingsModel = require('./models/MeetingsModel')(db);
+globals.db.UsersModel = require('./models/UsersModel')(db);
 
 globals.helpers = {};
 globals.helpers.hypermedia = require('./helpers/hypermedia');
@@ -47,9 +48,11 @@ app.use(new rateLimiter({
   headers: true,
 }));
 
+const authRoute = require('./routes/AuthRoute')(globals);
 const echoRoute = require('./routes/echo')(globals);
 const meetingsRoute = require('./routes/meetingsRoute')(globals);
 
+app.use(authRoute);
 app.use(echoRoute);
 app.use(meetingsRoute);
 
