@@ -79,3 +79,5 @@ app.use((err, req, res) => {
 
 app.listen(process.env.APP_PORT);
 module.exports = app;
+
+module.exports.globals = globals;

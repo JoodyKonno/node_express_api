@@ -18,6 +18,7 @@ module.exports = globals => {
         .status(201)
         .json({
           data: {
+            id: newMeeting.id,
             title: newMeeting.title,
             content: newMeeting.content,
             href: globals.helpers.hypermedia.singleResource('meetings', newMeeting.id)
