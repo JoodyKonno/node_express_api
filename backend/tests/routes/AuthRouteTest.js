@@ -4,6 +4,7 @@ describe('Route /auth', () => {
 
   let existingUsers = [
     {
+      name: 'pera',
       email: 'pera@pera',
       password: 'pera',
     }

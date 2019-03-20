@@ -51,10 +51,12 @@ app.use(new rateLimiter({
 const authRoute = require('./routes/AuthRoute')(globals);
 const echoRoute = require('./routes/echo')(globals);
 const meetingsRoute = require('./routes/meetingsRoute')(globals);
+const usersRoute = require('./routes/usersRoute')(globals);
 
 app.use(authRoute);
 app.use(echoRoute);
 app.use(meetingsRoute);
+app.use(usersRoute);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

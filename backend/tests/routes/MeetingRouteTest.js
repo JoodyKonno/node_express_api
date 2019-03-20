@@ -51,7 +51,7 @@ describe("Route /meetings", () => {
       content: "pera pera",
     };
 
-    it('should save a new meeting', () => {
+    it('should save a new meeting and return it', () => {
       return request
         .post('/meetings')
         .set('Content-type', 'application/json')
